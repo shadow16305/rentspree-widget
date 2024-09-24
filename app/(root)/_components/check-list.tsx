@@ -27,7 +27,7 @@ export const CheckList = () => {
   const screeningPrice = verificationReportIsChecked ? "49.99" : "39.99";
   const documentFee = verificationReportIsChecked ? "& documents" : "";
 
-  let inqueryString = `Who will pay the $${screeningPrice} screening reports ${documentFee} fee?`;
+  let inquiryString = `Who will pay the $${screeningPrice} screening reports ${documentFee} fee?`;
 
   return (
     <>
@@ -76,7 +76,7 @@ export const CheckList = () => {
       </ul>
       <PaymentRadioGroup
         creditReportChecked={creditReportChecked}
-        inqueryString={inqueryString}
+        inqueryString={inquiryString}
         selectedPaymentPerson={selectedPaymentPerson}
         onPaymentPersonChange={setSelectedPaymentPerson}
       />
