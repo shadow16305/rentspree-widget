@@ -7,7 +7,8 @@ import { PaymentRadioGroup } from "./payment-radio-group";
 import { useFormContext } from "@/context/form-context";
 
 export const CheckList = () => {
-  const { checkedItems, setCheckedItems, selectedPaymentPerson, setSelectedPaymentPerson } = useFormContext();
+  const { checkedItems, setCheckedItems, selectedPaymentPerson, setSelectedPaymentPerson, totalPrice } =
+    useFormContext();
 
   const handleCheckboxChange = (id: string) => {
     setCheckedItems((prev) => ({
@@ -22,10 +23,11 @@ export const CheckList = () => {
   let verificationReportIsChecked = checkedItems[checkboxes[verificationReportIndex].id];
   let creditReportChecked = checkedItems[checkboxes[creditReportIndex].id];
 
-  const screeningPrice = verificationReportIsChecked ? "49.99" : "39.99";
   const documentFee = verificationReportIsChecked ? "& documents" : "";
 
-  let inquiryString = `Who will pay the $${screeningPrice} screening reports ${documentFee} fee?`;
+  let inquiryString = `Who will pay the $${
+    creditReportChecked ? totalPrice : "39.99"
+  } screening reports ${documentFee} fee?`;
 
   return (
     <>

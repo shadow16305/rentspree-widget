@@ -49,12 +49,15 @@ export const FormContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const [selectedPaymentPerson, setSelectedPaymentPerson] = useState<string>("Applicants");
 
   useEffect(() => {
-    console.log("Checked items: ", checkedItems);
-    console.log("Address: ", address);
-    console.log("Email From: ", emailFrom);
-    console.log("Emails: ", emails);
-    console.log("Selected Payment Person: ", selectedPaymentPerson);
-  }, [checkedItems, address, emailFrom, emails, selectedPaymentPerson]);
+    const creditReportChecked = checkedItems["credit-report"];
+    const verificationReportChecked = checkedItems["income-verification"];
+
+    if (!creditReportChecked) {
+      setTotalPrice("Free");
+    } else {
+      setTotalPrice(verificationReportChecked ? "49.99" : "39.99");
+    }
+  }, [checkedItems]);
 
   const formCtxValue = {
     checkedItems,
@@ -76,8 +79,10 @@ export const FormContextProvider: React.FC<{ children: ReactNode }> = ({ childre
 
 export const useFormContext = (): FormContextObject => {
   const context = useContext(FormContext);
+
   if (!context) {
     throw new Error("useFormContext must be used within a FormProvider");
   }
+
   return context;
 };

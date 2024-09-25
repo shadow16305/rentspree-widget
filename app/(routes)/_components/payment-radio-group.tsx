@@ -28,7 +28,7 @@ export const PaymentRadioGroup: React.FC<PaymentRadioButtonsProps> = ({
               type="radio"
               name="payment-person"
               id="app"
-              checked={creditReportChecked ? selectedPaymentPerson === "app" : false}
+              checked={creditReportChecked ? selectedPaymentPerson === "Applicants" : false}
               disabled={!creditReportChecked}
               onChange={() => onPaymentPersonChange("Applicants")}
               className={cn(
@@ -53,7 +53,7 @@ export const PaymentRadioGroup: React.FC<PaymentRadioButtonsProps> = ({
               type="radio"
               name="payment-person"
               id="me"
-              checked={creditReportChecked ? selectedPaymentPerson === "me" : false}
+              checked={creditReportChecked ? selectedPaymentPerson === "Me" : false}
               disabled={!creditReportChecked}
               onChange={() => onPaymentPersonChange("Me")}
               className={cn(

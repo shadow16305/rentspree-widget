@@ -24,8 +24,8 @@ export const ApplicantInfo = () => {
         setEmails={setEmails}
         handleRemoveEmail={handleRemoveEmail}
       />
-      <div className="flex-grow h-auto" />
-      <hr className="w-full h-px bg-neutral-600" />
+      <div className="flex-grow h-auto hidden md:block" />
+      <hr className="w-full h-px bg-neutral-600 mt-6 md:mt-0" />
       <div className="flex items-center justify-between mt-4">
         <Button onClick={() => router.push("property")} className="bg-neutral-100 text-black border-2 border-black">
           Back

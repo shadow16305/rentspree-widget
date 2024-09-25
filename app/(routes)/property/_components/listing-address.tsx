@@ -34,8 +34,8 @@ export const ListingAddress = () => {
     <>
       <h1 className="mt-4 text-xl text-black font-bold">Confirm Listing Address</h1>
       <ListingFields address={localAddress} setLocalAddress={setLocalAddress} isError={isError} />
-      <div className="flex-grow h-auto" />
-      <hr className="w-full h-px bg-neutral-600" />
+      <div className="flex-grow h-auto hidden md:block" />
+      <hr className="w-full h-px bg-neutral-600 mt-6 md:mt-0" />
       <div className="flex items-center justify-between mt-4">
         <Button onClick={() => router.push("/")} className="bg-neutral-100 text-black border-2 border-black">
           Back

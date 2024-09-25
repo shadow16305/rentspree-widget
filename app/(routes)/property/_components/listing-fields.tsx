@@ -44,16 +44,16 @@ export const ListingFields = ({ address, setLocalAddress, isError }: ListingFiel
         />
         {isError && !address.street && <p className="text-red-500 text-sm absolute left-0">Required</p>}
       </div>
-      <div className="flex items-center justify-between gap-4 mt-8 w-full">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-8 w-full">
         <input
           type="number"
           name="unit"
           placeholder="Unit number"
           value={address.unit}
           onChange={handleInputChange}
-          className="appearance-none border border-black rounded-lg focus:outline-none h-14 px-4 w-1/2 placeholder:text-neutral-500"
+          className="appearance-none border border-black rounded-lg focus:outline-none h-14 px-4 w-full md:w-1/2 placeholder:text-neutral-500"
         />
-        <div className="w-1/2 relative">
+        <div className="w-full md:w-1/2 relative">
           <input
             type="text"
             name="city"
