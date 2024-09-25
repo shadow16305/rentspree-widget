@@ -20,12 +20,12 @@ export const CheckList = () => {
   const creditReportIndex = 1;
   const verificationReportIndex = 4;
 
-  let verificationReportIsChecked = checkedItems[checkboxes[verificationReportIndex].id];
-  let creditReportChecked = checkedItems[checkboxes[creditReportIndex].id];
+  const verificationReportIsChecked = checkedItems[checkboxes[verificationReportIndex].id];
+  const creditReportChecked = checkedItems[checkboxes[creditReportIndex].id];
 
   const documentFee = verificationReportIsChecked ? "& documents" : "";
 
-  let inquiryString = `Who will pay the $${
+  const inquiryString = `Who will pay the $${
     creditReportChecked ? totalPrice : "39.99"
   } screening reports ${documentFee} fee?`;
 
