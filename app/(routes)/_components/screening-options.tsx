@@ -27,7 +27,8 @@ export const ScreeningOptions = () => {
           Screening Restrictions
         </a>
       </div>
-      <hr className="w-full h-px bg-neutral-600 mt-6" />
+      <div className="flex-grow h-auto" />
+      <hr className="w-full h-px bg-neutral-600" />
       <div className="mt-4 flex justify-end">
         <Button disabled={!isNextButtonEnabled} onClick={() => router.push("property")}>
           Next

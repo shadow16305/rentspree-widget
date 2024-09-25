@@ -3,13 +3,11 @@
 import { checkboxes } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
-import { useState } from "react";
 import { PaymentRadioGroup } from "./payment-radio-group";
 import { useFormContext } from "@/context/form-context";
 
 export const CheckList = () => {
-  const { checkedItems, setCheckedItems } = useFormContext();
-  const [selectedPaymentPerson, setSelectedPaymentPerson] = useState<string>("app");
+  const { checkedItems, setCheckedItems, selectedPaymentPerson, setSelectedPaymentPerson } = useFormContext();
 
   const handleCheckboxChange = (id: string) => {
     setCheckedItems((prev) => ({

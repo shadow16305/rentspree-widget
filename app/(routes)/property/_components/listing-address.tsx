@@ -27,14 +27,15 @@ export const ListingAddress = () => {
     }
 
     setAddress(localAddress);
-    router.push("");
+    router.push("applicant");
   };
 
   return (
     <>
       <h1 className="mt-4 text-xl text-black font-bold">Confirm Listing Address</h1>
       <ListingFields address={localAddress} setLocalAddress={setLocalAddress} isError={isError} />
-      <hr className="w-full h-px bg-neutral-600 mt-36" />
+      <div className="flex-grow h-auto" />
+      <hr className="w-full h-px bg-neutral-600" />
       <div className="flex items-center justify-between mt-4">
         <Button onClick={() => router.push("/")} className="bg-neutral-100 text-black border-2 border-black">
           Back

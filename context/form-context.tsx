@@ -12,6 +12,12 @@ interface FormContextObject {
   setTotalPrice: React.Dispatch<React.SetStateAction<string>>;
   address: AddressFields;
   setAddress: React.Dispatch<React.SetStateAction<AddressFields>>;
+  emailFrom: string;
+  setEmailFrom: React.Dispatch<React.SetStateAction<string>>;
+  emails: string[];
+  setEmails: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedPaymentPerson: string;
+  setSelectedPaymentPerson: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const FormContext = createContext<FormContextObject>({
@@ -21,6 +27,12 @@ export const FormContext = createContext<FormContextObject>({
   setTotalPrice: () => {},
   address: { street: "", unit: "", city: "", state: "", zip: "" },
   setAddress: () => {},
+  emailFrom: "",
+  setEmailFrom: () => {},
+  emails: [],
+  setEmails: () => {},
+  selectedPaymentPerson: "Applicants",
+  setSelectedPaymentPerson: () => {},
 });
 
 export const FormContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -32,17 +44,34 @@ export const FormContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const [checkedItems, setCheckedItems] = useState<CheckedItems>(initialCheckedItems);
   const [totalPrice, setTotalPrice] = useState<string>("49.99");
   const [address, setAddress] = useState<AddressFields>({ street: "", unit: "", city: "", state: "", zip: "" });
+  const [emailFrom, setEmailFrom] = useState<string>("");
+  const [emails, setEmails] = useState<string[]>([]);
+  const [selectedPaymentPerson, setSelectedPaymentPerson] = useState<string>("Applicants");
 
   useEffect(() => {
     console.log("Checked items: ", checkedItems);
     console.log("Address: ", address);
-  }, [checkedItems, address]);
+    console.log("Email From: ", emailFrom);
+    console.log("Emails: ", emails);
+    console.log("Selected Payment Person: ", selectedPaymentPerson);
+  }, [checkedItems, address, emailFrom, emails, selectedPaymentPerson]);
 
-  return (
-    <FormContext.Provider value={{ checkedItems, setCheckedItems, totalPrice, setTotalPrice, address, setAddress }}>
-      {children}
-    </FormContext.Provider>
-  );
+  const formCtxValue = {
+    checkedItems,
+    setCheckedItems,
+    totalPrice,
+    setTotalPrice,
+    address,
+    setAddress,
+    emailFrom,
+    setEmailFrom,
+    emails,
+    setEmails,
+    selectedPaymentPerson,
+    setSelectedPaymentPerson,
+  };
+
+  return <FormContext.Provider value={formCtxValue}>{children}</FormContext.Provider>;
 };
 
 export const useFormContext = (): FormContextObject => {

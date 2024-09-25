@@ -30,7 +30,7 @@ export const PaymentRadioGroup: React.FC<PaymentRadioButtonsProps> = ({
               id="app"
               checked={creditReportChecked ? selectedPaymentPerson === "app" : false}
               disabled={!creditReportChecked}
-              onChange={() => onPaymentPersonChange("app")}
+              onChange={() => onPaymentPersonChange("Applicants")}
               className={cn(
                 "appearance-none border-2 border-black rounded-full w-5 h-5 peer cursor-pointer",
                 !creditReportChecked ? "cursor-not-allowed" : "cursor-pointer"
@@ -55,7 +55,7 @@ export const PaymentRadioGroup: React.FC<PaymentRadioButtonsProps> = ({
               id="me"
               checked={creditReportChecked ? selectedPaymentPerson === "me" : false}
               disabled={!creditReportChecked}
-              onChange={() => onPaymentPersonChange("me")}
+              onChange={() => onPaymentPersonChange("Me")}
               className={cn(
                 "appearance-none border-2 border-black rounded-full w-5 h-5 peer cursor-pointer",
                 !creditReportChecked ? "cursor-not-allowed" : "cursor-pointer"
