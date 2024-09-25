@@ -41,7 +41,7 @@ export const RequestFields = ({
 
   return (
     <div className="mt-4">
-      <div className="mt-4">
+      <div>
         <input
           type="email"
           placeholder="Your email"
@@ -54,7 +54,7 @@ export const RequestFields = ({
       <div className="mt-4">
         <div
           className={cn(
-            "border border-black rounded-lg flex items-center flex-wrap px-2",
+            "border border-black rounded-lg flex items-center flex-wrap px-2 w-full max-w-[554px]",
             emails.length > 0 && "py-2"
           )}>
           {emails.map((email, index) => (
