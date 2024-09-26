@@ -31,17 +31,19 @@ export const ListingAddress = () => {
   };
 
   return (
-    <>
-      <h1 className="mt-4 text-xl text-black font-bold">Confirm Listing Address</h1>
+    <div className="md:pr-14 h-full flex flex-col">
+      <h1 className="text-xl text-black font-bold">Confirm Listing Address</h1>
       <ListingFields address={localAddress} setLocalAddress={setLocalAddress} isError={isError} />
       <div className="flex-grow h-auto hidden md:block" />
       <hr className="w-full h-px bg-neutral-600 mt-6 md:mt-0" />
       <div className="flex items-center justify-between mt-4">
-        <Button onClick={() => router.push("/")} className="bg-neutral-100 text-black border-2 border-black">
+        <Button
+          onClick={() => router.push("/")}
+          className="transition bg-transparent hover:bg-neutral-100 text-black underline">
           Back
         </Button>
         <Button onClick={handleNextClick}>Next</Button>
       </div>
-    </>
+    </div>
   );
 };

@@ -54,8 +54,8 @@ export const RequestFields = ({
       <div className="mt-4">
         <div
           className={cn(
-            "border border-black rounded-lg flex items-center flex-wrap px-2 w-full max-w-[554px]",
-            emails.length > 0 && "py-2"
+            "border border-black rounded-lg flex items-center flex-wrap px-2 w-full max-w-full gap-y-2",
+            emails.length > 0 && "py-1"
           )}>
           {emails.map((email, index) => (
             <span key={index} className="bg-neutral-100 text-sm rounded-full px-3 py-1 mr-2 flex items-center">
@@ -71,7 +71,10 @@ export const RequestFields = ({
             onKeyDown={handleKeyDown}
             onChange={handleApplicantEmailChange}
             placeholder="Applicant emails"
-            className="appearance-none border-none outline-none h-14 px-4 max-w-64 w-full placeholder:text-neutral-500"
+            className={cn(
+              "appearance-none border-none outline-none h-14 px-4 max-w-64 w-full placeholder:text-neutral-500",
+              emails.length < 1 && "max-w-none"
+            )}
           />
         </div>
         <p className="text-xs mt-2">Send multiple requests by separating each email with a comma.</p>
